@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import Arvostelut from './pages/Arvostelut';
+import Koti from './pages/Koti';
+import Ryhmat from './pages/Ryhmat';
+import Tili from './pages/Tili';
+import Uutiset from './pages/Uutiset';
+import NavBar from './components/Navbar';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <NavBar/>
+        <Routes>
+          <Route exact path = '/' element={<Koti />} />
+          <Route path = '/uutiset' element={<Uutiset />} />
+          <Route path = '/ryhmat' element={<Ryhmat />} />
+          <Route path = '/arvostelut' element={<Arvostelut />} />
+          <Route path = '/tili' element={<Tili />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
