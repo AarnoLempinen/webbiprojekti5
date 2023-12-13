@@ -6,6 +6,7 @@ const xml2js = require('xml2js');
 
 export default function NewsFeed() {
   const [newsItems, setNewsItems] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     async function fetchNews() {
@@ -31,21 +32,41 @@ export default function NewsFeed() {
     fetchNews();
   }, []);
 
+  const handleSearchInputChange = (event) => {
+    setSearchTerm(event.target.value.toLowerCase());
+  };
+
+  const filteredNews = newsItems.filter(article =>
+    article.Title[0].toLowerCase().includes(searchTerm)
+  );
+
   return (
     <div>
-      {newsItems.map((article, index) => (
-        <div>
-          <h1 style={{ color: '#fff' }}>{article.Title}</h1>
+      <div>
+        
+        <input
+        className='haku'
+          type="text"
+          id="searchInput"
+          placeholder="Hae uutisia otsikolla"
+          value={searchTerm}
+          onChange={handleSearchInputChange}
+        />
+      </div>
+
+      {filteredNews.map((article, index) => (
         <div key={index} className='index'>
-          <img src={article.ThumbnailURL[0]} alt="News Thumbnail" className="thumbnail"/>
+            <img src={article.ThumbnailURL[0]} alt="News Thumbnail" className="thumbnail" />
           <div>
-          <p className="publishDate">{article.PublishDate[0]}</p>
-          <p className="HTMLLead">{article.HTMLLead[0]}</p>
-          <a href={article.ArticleURL[0]} className="link">
-            Linkki artikkeliin
-          </a>
-        </div>
-        </div>
+          <h1 style={{ color: '#fff' }}>{article.Title}</h1>
+            <div>
+              <p className="publishDate">{article.PublishDate[0]}</p>
+              <p className="HTMLLead">{article.HTMLLead[0]}</p>
+              <a href={article.ArticleURL[0]} className="link">
+                Linkki artikkeliin
+              </a>
+            </div>
+          </div>
         </div>
       ))}
     </div>
