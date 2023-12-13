@@ -4,8 +4,7 @@ export default function Ryhmat(){
     return (
     <div>
         <AddGroupForm/>
-        <ShowGroups />
-        <ShowMembers />
+      <ShowGroups/>
     </div>
     );
 }
