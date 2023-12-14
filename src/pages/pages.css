@@ -3,7 +3,25 @@
 
 
 
+.ryhma{
+    font-size: 15px;
+    line-height: 40px;
+    margin-top: 10px;
+}
 
+.jasenet{
+    font-size: 25px;
+    font-weight: 200;
+    color: #fff;
+}
+
+.ryhma2{
+    font-size: 15px;
+    line-height: 40px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+}
 
 * {
     margin: 0;
@@ -412,6 +430,10 @@ header {
         
         
     }
+
+
+    
+    
     
   }
 
@@ -505,22 +527,4 @@ header {
   }
 
 
-.ryhma{
-    font-size: 15px;
-    line-height: 40px;
-    margin-top: 10px;
-}
 
-.jasenet{
-    font-size: 25px;
-    font-weight: 200;
-    color: #fff;
-}
-
-.ryhma2{
-    font-size: 15px;
-    line-height: 40px;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-left: 10px;
-}
