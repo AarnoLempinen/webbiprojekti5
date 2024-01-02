@@ -15,7 +15,7 @@ const MovieReviewApp = () => {
       // Fetch movies from TMDb
       async function fetchMovies() {
         try {
-          const apiKey = '1f20c2c15c218d0a95c58dc090bf3a4d';
+          const apiKey = '';
           const result = await axios.get('https://api.themoviedb.org/3/discover/movie', {
             params: {
               api_key: apiKey,
